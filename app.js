@@ -73,24 +73,24 @@ window.onload = function () {
 
   function addBook(e) {
     e.preventDefault();
+    e.stopPropagation();
     const titleBool = Validate.title(titleInput.value.trim());
-    if(titleBool === false) return;
+    if (titleBool === false) return;
     const authorBool = Validate.author(authorInput.value.trim());
-    if(authorBool === false) return;
+    if (authorBool === false) return;
     const ISBNBool = (ISBNInput.value === undefined) ? Validate.ISBNlength(ISBNInput.value) : Validate.ISBNlength(ISBNInput.value.trim());
-    if(ISBNBool === false) return;
-    categoryValue = category.value; // save value if input field IS NOT empty
+    if (ISBNBool === false) return;
+    categoryValue = category.value; // save value if input field is NOT empty
     const categoryBool = Validate.category(category.value.trim());
+    if (categoryBool === false) return;
 
-    if (titleBool && authorBool && ISBNBool && categoryBool) {
-      const book = {
-        titleInputValue: titleInput.value.trim(),
-        authorInputValue: authorInput.value.trim(),
-        ISBNInputValue: Number(ISBNInput.value.trim()),
-        categoryValue: categoryValue.trim(),
-      };
-      Validate.uniqueBookParams(book);
-    }
+    const book = {
+      titleInputValue: titleInput.value.trim(),
+      authorInputValue: authorInput.value.trim(),
+      ISBNInputValue: Number(ISBNInput.value.trim()),
+      categoryValue: categoryValue.trim(),
+    };
+    Validate.uniqueBookParams(book);
   }
   //#endregion
 
