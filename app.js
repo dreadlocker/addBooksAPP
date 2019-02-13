@@ -213,6 +213,7 @@ window.onload = function () {
           alert('Such Title already exists');
           titleInput.value = '';
           titleInput.style.backgroundColor = '#ff4b4b';
+          titleInput.focus();
           return;
         } else {
           titleInput.style.backgroundColor = '#17181C';
@@ -221,6 +222,7 @@ window.onload = function () {
           alert('Such Author already exists');
           authorInput.value = '';
           authorInput.style.backgroundColor = '#ff4b4b';
+          authorInput.focus();
           return;
         } else {
           authorInput.style.backgroundColor = '#17181C';
@@ -229,6 +231,7 @@ window.onload = function () {
           alert('Such ISBN already exists');
           ISBNInput.value = '';
           ISBNInput.style.backgroundColor = '#ff4b4b';
+          ISBNInput.focus();
           return;
         } else {
           ISBNInput.style.backgroundColor = '#17181C';
