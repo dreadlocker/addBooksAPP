@@ -74,8 +74,11 @@ window.onload = function () {
   function addBook(e) {
     e.preventDefault();
     const titleBool = Validate.title(titleInput.value.trim());
+    if(titleBool === false) return;
     const authorBool = Validate.author(authorInput.value.trim());
+    if(authorBool === false) return;
     const ISBNBool = (ISBNInput.value === undefined) ? Validate.ISBNlength(ISBNInput.value) : Validate.ISBNlength(ISBNInput.value.trim());
+    if(ISBNBool === false) return;
     categoryValue = category.value; // save value if input field IS NOT empty
     const categoryBool = Validate.category(category.value.trim());
 
@@ -181,7 +184,7 @@ window.onload = function () {
     },
     author(str) {
       if (str === '') {
-        alert(`Author must have at least 1 characters`);
+        alert(`'Author' must have at least 1 characters`);
         return false;
       } else {
         return true;
